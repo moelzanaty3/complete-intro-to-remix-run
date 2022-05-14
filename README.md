@@ -54,4 +54,4 @@ cp -R ../my-old-remix-app/app app
 
 ---
 
-Made with 💜 by [Mohammed Elzanaty!](https://www.linkedin.com/in/moelzanaty3/)  :wave:
+Made with 💜 by [Mohammed Elzanaty!](https://www.linkedin.com/in/moelzanaty3/) :wave:
