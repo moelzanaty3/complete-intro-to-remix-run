@@ -13,3 +13,7 @@
 ## Module
 
 - A solid practice is to create a module that deals with a particular concern. In our case it's going to be reading and writing posts.
+
+## Dynamic Route Params
+
+- The part of the filename attached to the $ becomes a named key on the params object that comes into your loader. This is how we'll look up our blog post.
