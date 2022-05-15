@@ -21,6 +21,14 @@ export default function Posts() {
   return (
     <main>
       <h1>Posts</h1>
+      {/* The to prop is just "admin" and it linked to /posts/admin */}
+      {/*   With Remix, you get relative links. */}
+      <Link
+        to="admin"
+        className="m-2 inline-block rounded-full bg-gradient-to-r from-blue-500 to-pink-600 py-2 px-4 text-gray-100 hover:from-orange-500 hover:to-pink-500"
+      >
+        Admin
+      </Link>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
