@@ -32,9 +32,8 @@ export const action: ActionFunction = async ({ request, params }) => {
   return redirect("/posts/admin");
 };
 
-export default function AdminPostSlug() {
+export default function AdminPostIndex() {
   const { post } = useLoaderData() as LoaderData;
-  console.log(post);
 
   return (
     <main className="mx-auto max-w-4xl text-left">
@@ -51,5 +50,20 @@ export default function AdminPostSlug() {
         </button>
       </Form>
     </main>
+  );
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  return (
+    <div className="flex flex-col items-center">
+      <h1>
+        Oh no! Error from <em>/posts/admin/$postId</em>
+      </h1>
+      <p className="bold bg-red-600 text-slate-100">{error.message}</p>
+      <img
+        src="https://media.giphy.com/media/3o7btLQQQXyQQQQQQ/giphy.gif"
+        alt="error"
+      />
+    </div>
   );
 }

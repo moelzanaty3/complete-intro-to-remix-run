@@ -15,7 +15,6 @@ export const loader: LoaderFunction = async () => {
 
 export default function PostAdmin() {
   const { posts } = useLoaderData() as LoaderData;
-  console.log(posts);
 
   return (
     <div className="mx-auto max-w-4xl">

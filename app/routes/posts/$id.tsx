@@ -16,7 +16,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   return json<LoaderData>({ post });
 };
 
-export default function PostSlug() {
+export default function PostIndex() {
   const { post } = useLoaderData() as LoaderData;
   return (
     <main className="mx-auto max-w-4xl">
@@ -25,5 +25,20 @@ export default function PostSlug() {
       </h1>
       <p className="text-center">{post.body}</p>
     </main>
+  );
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  return (
+    <div className="flex flex-col items-center">
+      <h1>
+        Oh no! Error from <em>/posts/$postId</em>
+      </h1>
+      <p className="bold bg-red-600 text-slate-100">{error.message}</p>
+      <img
+        src="https://media.giphy.com/media/3o7btLQQQXyQQQQQQ/giphy.gif"
+        alt="error"
+      />
+    </div>
   );
 }
