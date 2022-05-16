@@ -8,10 +8,10 @@ import { getPost } from "~/models/post.server";
 type LoaderData = { post: Post };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, "slug is required");
+  invariant(params.id, "Post Id is required");
 
-  const post = await getPost(params.slug);
-  invariant(post, `Post not found: ${params.slug}`);
+  const post = await getPost(params.id);
+  invariant(post, `Post not found: ${params.id}`);
 
   return json<LoaderData>({ post });
 };
