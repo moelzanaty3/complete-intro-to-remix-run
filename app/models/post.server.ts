@@ -30,3 +30,7 @@ export async function getPost(slug: string) {
 export async function createPost(post: Pick<Post, "title" | "slug" | "body">) {
   console.log("Creating post", post);
 }
+
+export async function deletePost(slug: string) {
+  console.log("Deleting post", slug);
+}
