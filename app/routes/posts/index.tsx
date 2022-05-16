@@ -31,8 +31,8 @@ export default function Posts() {
       </Link>
       <ul>
         {posts.map((post) => (
-          <li key={post.slug}>
-            <Link to={post.slug} className="text-slate-300 underline">
+          <li key={post.id}>
+            <Link to={post.id as string} className="text-slate-300 underline">
               {post.title}
             </Link>
           </li>

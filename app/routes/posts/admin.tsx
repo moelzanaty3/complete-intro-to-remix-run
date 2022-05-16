@@ -15,6 +15,7 @@ export const loader: LoaderFunction = async () => {
 
 export default function PostAdmin() {
   const { posts } = useLoaderData() as LoaderData;
+  console.log(posts);
 
   return (
     <div className="mx-auto max-w-4xl">
@@ -23,8 +24,11 @@ export default function PostAdmin() {
         <nav className="col-span-6 md:col-span-1">
           <ul>
             {posts.map((post) => (
-              <li key={post.slug}>
-                <Link to={post.slug} className="text-blue-600 underline">
+              <li key={post.id}>
+                <Link
+                  to={post.id as string}
+                  className="text-blue-600 underline"
+                >
                   {post.title}
                 </Link>
               </li>

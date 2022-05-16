@@ -17,3 +17,17 @@
 ## Dynamic Route Params
 
 - The part of the filename attached to the $ becomes a named key on the params object that comes into your loader. This is how we'll look up our blog post.
+
+## Database
+
+initialize prisma with sqlite:
+
+```bash
+npx prisma init --datasource-provider sqlite
+```
+
+then after create model , we need to push it
+
+```bash
+npx prisma db push
+```

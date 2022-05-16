@@ -1,36 +1,34 @@
-const POSTS: Post[] = [
-  {
-    slug: "my-first-post",
-    title: "My First Post",
-    body: "This is my first post",
-  },
-  {
-    slug: "90s-mixtape",
-    title: "A Mixtape I Made Just For You",
-    body: "This is a mixtape I made just for you",
-  },
-];
+import { db } from "~/db.server";
 
 export type Post = {
-  slug: string;
+  id?: string;
   title: string;
+  slug: string;
   body: string;
+  updatedAt?: Date;
+  createdAt?: Date;
 };
 
-// the getPosts function async because even though
-// it's not currently doing anything async it will soon! 😀
-export async function getPosts(): Promise<Array<Post>> {
-  return POSTS;
+export async function getPosts(): Promise<
+  Pick<Post, "id" | "slug" | "title">[]
+> {
+  return await db.post.findMany({
+    take: 20,
+    select: { id: true, title: true, slug: true },
+    orderBy: { createdAt: "asc" },
+  });
 }
 
-export async function getPost(slug: string) {
-  return POSTS.find((post) => post.slug === slug);
+export async function getPost(id: string): Promise<Post | null> {
+  return await db.post.findUnique({ where: { id } });
 }
 
 export async function createPost(post: Pick<Post, "title" | "slug" | "body">) {
   console.log("Creating post", post);
+  return await db.post.create({ data: post });
 }
 
-export async function deletePost(slug: string) {
-  console.log("Deleting post", slug);
+export async function deletePost(id: string): Promise<Pick<Post, "id">> {
+  console.log("Deleting post", id);
+  return await db.post.delete({ where: { id } });
 }
