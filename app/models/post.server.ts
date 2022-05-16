@@ -26,3 +26,7 @@ export async function getPosts(): Promise<Array<Post>> {
 export async function getPost(slug: string) {
   return POSTS.find((post) => post.slug === slug);
 }
+
+export async function createPost(post: Pick<Post, "title" | "slug" | "body">) {
+  console.log("Creating post", post);
+}
