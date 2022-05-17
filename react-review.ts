@@ -1,15 +1,15 @@
 import React from "react";
 
-type MyProps = {
+type Props = {
   items: string[];
 };
 
-type MyState = {
+type State = {
   filteredItems: string[];
 };
 
-class ListCC extends React.Component<MyProps, MyState> {
-  constructor(props: MyProps | Readonly<MyProps>) {
+class ListCC extends React.Component<Props, State> {
+  constructor(props: MyProps | Readonly<Props>) {
     super(props);
     this.state = {
       filteredItems: this.props.items,
@@ -43,7 +43,7 @@ class ListCC extends React.Component<MyProps, MyState> {
   }
 }
 
-const ListFC = ({ items, ...props }: MyProps) => {
+const ListFC = ({ items, ...props }: Props) => {
   const [filteredItems, setFilteredItems] = React.useState(items);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
